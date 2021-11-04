@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IMC</title>
+
+    <script>
+        function imc() {
+            var altura = document.getElementById("altura").value;
+            var peso = document.getElementById("peso").value;
+            altura /= 100;
+            var resultadoIMC = (peso / (altura * altura)).toFixed(2);
+            document.getElementById("resultadoIMC").innerHTML = "IMC: <strong>" + resultadoIMC;
+            if(resultadoIMC < 16) {
+                alert("Você tem um baixo peso severo")
+            }
+            else if (resultadoIMC >= 16 && resultadoIMC < 17){
+                    alert("Você tem baixo peso moderado")
+            }
+            else if (resultadoIMC >= 17 && resultadoIMC < 18.5) {
+                alert ("Você tem baixo peso leve")
+            }
+            else if (resultadoIMC >= 18.5 && resultadoIMC < 25) {
+                alert ("Você tem o peso ideal")
+            }
+            else if (resultadoIMC >= 25  && resultadoIMC < 30 ) {
+                alert ("Você tem pré-obesidade")
+            }
+            else if (resultadoIMC >= 30 && resultadoIMC < 35) {
+                alert ("Você tem obesidade moderada")
+            }
+            else if (resultadoIMC >= 35 && resultadoIMC < 40) {
+                alert ("Você tem obesidade alta")
+            }
+            else {
+                alert ("Você tem obesidade muito alta")
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>IMC</h1>
+    <label for="altura">Altura (cm): </label>
+    <input type="number" id="altura" min="40" max="310">
+    <label for="peso">Peso (kg): </label>
+    <input type="number" id="peso" min="2" max="200">
+    <button onclick="imc()">Calcular </button>
+    <div id="resultadoIMC"></div>
+</body>
+</html>
